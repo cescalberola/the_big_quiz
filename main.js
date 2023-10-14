@@ -1,5 +1,6 @@
 let currentQuestionIndex = 0;
 let questions = [];
+let resultMessage = null;
 
 function getQuestions() {
   axios.get('https://opentdb.com/api.php?amount=10&type=multiple')
@@ -14,42 +15,44 @@ function getQuestions() {
 }
 
 function renderQuestion() {
-    if (currentQuestionIndex < questions.length) {
-      const quizPage = document.getElementById('quiz-page');
-      const question = questions[currentQuestionIndex];
+  if (currentQuestionIndex < questions.length) {
+    const question = questions[currentQuestionIndex];
 
-      quizPage.innerHTML = '';
+    const questionHeading = document.getElementById('question-heading');
+    const questionText = document.getElementById('question-text');
+    const answerButtons = document.querySelectorAll('#answer-buttons .button');
 
-      const answers = shuffleArray(question.incorrect_answers.concat(question.correct_answer));
+    questionHeading.textContent = `Pregunta ${currentQuestionIndex + 1}:`;
+    questionText.textContent = question.question;
 
-      const questionElement = document.createElement('div');
-      questionElement.innerHTML = `
-        <h3>Pregunta ${currentQuestionIndex + 1}:</h3>
-        <p>${question.question}</p>
-        ${answers.map((answer, i) => {
-          const colors = ['red', 'blue', 'green', 'yellow'];
-          const style = `background-color: ${colors[i]}; color: white;`;
-          return `<button class="button" style="${style}" data-answer="${answer}">${answer}</button>`;
-        }).join('')}
-      `;
+    const answers = shuffleArray(question.incorrect_answers.concat(question.correct_answer));
 
-      quizPage.appendChild(questionElement);
+    answerButtons.forEach((button, i) => {
+      button.textContent = answers[i];
+      button.removeAttribute('disabled');
+      button.setAttribute('data-answer', answers[i]);
 
-      const buttons = questionElement.querySelectorAll('.button');
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const selectedAnswer = button.getAttribute('data-answer');
-          const correctAnswer = question.correct_answer;
-          checkAnswer(selectedAnswer, correctAnswer);
-        });
+      button.addEventListener('click', () => {
+        const selectedAnswer = button.getAttribute('data-answer');
+        const correctAnswer = question.correct_answer;
+        checkAnswer(selectedAnswer, correctAnswer);
       });
-    } else {
-      showFinalMessage();
+    });
+
+    if (resultMessage) {
+      resultMessage.remove();
     }
+  } else {
+    showFinalMessage();
   }
+}
 
 function checkAnswer(selectedAnswer, correctAnswer) {
-  const resultMessage = document.createElement('p');
+  if (resultMessage) {
+    resultMessage.remove();
+  }
+
+  resultMessage = document.createElement('p');
   if (selectedAnswer === correctAnswer) {
     resultMessage.textContent = '¡Felicitaciones! La respuesta es correcta.';
     resultMessage.style.color = 'green';
@@ -59,6 +62,7 @@ function checkAnswer(selectedAnswer, correctAnswer) {
   }
 
   const quizPage = document.getElementById('quiz-page');
+
   quizPage.appendChild(resultMessage);
 
   const buttons = quizPage.querySelectorAll('button');
@@ -66,9 +70,17 @@ function checkAnswer(selectedAnswer, correctAnswer) {
     button.disabled = true;
   });
 
-  currentQuestionIndex++;
-  setTimeout(renderQuestion, 3000);
+  setTimeout(() => {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+      renderQuestion();
+    } else {
+      showFinalMessage();
+    }
+  }, 3000);
 }
+
 
 function shuffleArray(array) {
   const shuffled = [...array];
