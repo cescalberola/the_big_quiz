@@ -44,9 +44,10 @@ Are you ready to put your knowledge to the test? 💡
 Let's get started!
 
 ## Preview
-<span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>[https://raw.githubusercontent.com/parzibyte/WaterPy/master/assets/ImagenV1.png](https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png)</span><span>)</span>
 
-
+<p align="left">
+   <img src="[https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green](https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png)">
+   </p>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" width="30" alt="HTML">
