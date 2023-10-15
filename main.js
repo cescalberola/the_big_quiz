@@ -1,3 +1,9 @@
+const homeNav = document.getElementById("homeNav");
+const resultsNav = document.getElementById("resultsNav");
+const homeDiv= document.getElementById("home");
+const resultsDiv = document.getElementById("results");
+
+
 let questionCounter = 0;
 let questions = [];
 let resultMessage = null;
@@ -19,6 +25,16 @@ function getQuestions() {
         .catch(error => {
             console.error(error);
         });
+}
+
+function goHome(){
+    homeDiv.classList.remove("hide");
+    resultsDiv.classList.add("hide");
+}
+
+function goResults(){
+    homeDiv.classList.add("hide");
+    resultsDiv.classList.remove("hide");
 }
 
 function renderNextQuestion() {
@@ -117,7 +133,7 @@ function shuffleArray(array) {
       
 function showFinalMessage() {
     const quizPage = document.getElementById('quiz-page');
-    quizPage.innerHTML = '<h3>¡Felicidades, has completado el gran Quiz!</h3>';
+    quizPage.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3>';
     
     setTimeout(() => {
         const resetButton = document.getElementById("button-reset");
@@ -125,6 +141,7 @@ function showFinalMessage() {
 
     localStorage.removeItem('quizProgress');
 }
-    
 document.addEventListener('DOMContentLoaded', getQuestions);
+resultsNav.addEventListener("click", goResults)
+homeNav.addEventListener("click", goHome)    
       
