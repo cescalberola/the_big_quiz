@@ -46,7 +46,7 @@ Let's get started!
 ## Preview
 
 <p align="left">
-   <img src="[https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green](https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png)">
+   <img src="https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png">
    </p>
 
 <p align="center">
