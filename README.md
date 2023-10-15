@@ -44,7 +44,8 @@ Are you ready to put your knowledge to the test? 💡
 Let's get started!
 
 ## Preview
-![Quiz Preview](https://raw.githubusercontent.com/your-username/your-repository/main/assets/preview%20quiz.png)
+!(https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png))
+
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" width="30" alt="HTML">
