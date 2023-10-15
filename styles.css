@@ -1,19 +1,27 @@
 * {
     text-align: center;
     font-size: 25px;
-    
 }
+
+h1 {
+    margin-top: 40px;
+}
+
 .hide{
     display: none ;
 }
 
 #homeNav{
     margin-top: 20px;
-    margin-right: 100px;
+    margin-right: 380px;
 }
 
 #resultsNav{
     text-align: right;
+}
+
+#homeNav, #resultsNav {
+    border-radius: 10px;
 }
 
 .button {
@@ -34,16 +42,53 @@
 
 .red {
     background-color: red;
+    border-radius: 10px;
 }
 
 .blue {
     background-color: blue;
+    border-radius: 10px;
 }
 
 .green {
     background-color: green;
+    border-radius: 10px;
 }
 
 .yellow {
     background-color: yellow;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+
+    .button-row {
+        display: block;
+    }
+
+    .button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 600px) {
+
+    .button-row {
+        display: block;
+    }
+
+    .button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .nav {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #homeNav, #resultsNav {
+        display: block;
+        margin: 10px auto;
+    }
 }

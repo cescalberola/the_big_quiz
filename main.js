@@ -1,19 +1,19 @@
 const homeNav = document.getElementById("homeNav");
 const resultsNav = document.getElementById("resultsNav");
-const homeDiv= document.getElementById("home");
+const homeDiv = document.getElementById("home");
 const resultsDiv = document.getElementById("results");
-
 
 let questionCounter = 0;
 let questions = [];
 let resultMessage = null;
 let isRenderingNextQuestion = false;
-
+let correctAnswersCount = 0;
 
 const savedProgress = localStorage.getItem('quizProgress');
-    if (savedProgress) {
+if (savedProgress) {
     questionCounter = parseInt(savedProgress, 10);
 }
+
 
 function getQuestions() {
     axios.get('https://opentdb.com/api.php?amount=10&type=multiple')
@@ -35,14 +35,12 @@ function goHome() {
     renderQuestion();
 }
 
-
-function goResults(){
+function goResults() {
     homeDiv.classList.add("hide");
     resultsDiv.classList.remove("hide");
 }
 
 function renderNextQuestion() {
-
     if (isRenderingNextQuestion) {
         return;
     }
@@ -50,15 +48,15 @@ function renderNextQuestion() {
     isRenderingNextQuestion = true;
 
     setTimeout(() => {
-    isRenderingNextQuestion = false;
+        isRenderingNextQuestion = false;
     }, 1000);
 
     questionCounter++;
 
     if (questionCounter < questions.length) {
-    renderQuestion();
+        renderQuestion();
     } else {
-    showFinalMessage();
+        showFinalMessage();
     }
 }
 
@@ -85,7 +83,7 @@ function renderQuestion() {
                 const correctAnswer = question.correct_answer;
                 checkAnswer(selectedAnswer, correctAnswer);
             });
-    }   );
+        });
 
         if (resultMessage) {
             resultMessage.remove();
@@ -94,7 +92,7 @@ function renderQuestion() {
         showFinalMessage();
 
         localStorage.removeItem('quizProgress');
-        }
+    }
 }
 
 function checkAnswer(selectedAnswer, correctAnswer) {
@@ -106,6 +104,7 @@ function checkAnswer(selectedAnswer, correctAnswer) {
     if (selectedAnswer === correctAnswer) {
         resultMessage.textContent = "Congratulations! The answer is correct.";
         resultMessage.style.color = 'green';
+        correctAnswersCount++;
     } else {
         resultMessage.textContent = "I'm sorry, incorrect answer.";
         resultMessage.style.color = 'red';
@@ -125,6 +124,21 @@ function checkAnswer(selectedAnswer, correctAnswer) {
     }, 1000);
 }
 
+
+function showFinalMessage() {
+    const quizPage = document.getElementById('quiz-page');
+    if (correctAnswersCount >= 5) {
+        quizPage.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3><img src="/assets/funny-celebrate-12.gif">';
+    } else {
+        quizPage.innerHTML = '<h3>¡What a pity, we will have to study more!!</h3><img src="/assets/triste-tristeza.gif">';
+    }
+
+    localStorage.removeItem('quizProgress');
+
+    homeNav.addEventListener("click", goHome);
+
+}
+
 function shuffleArray(array) {
     const shuffled = [...array];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -134,18 +148,6 @@ function shuffleArray(array) {
     return shuffled;
 }
 
-      
-function showFinalMessage() {
-    const quizPage = document.getElementById('quiz-page');
-    quizPage.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3>';
-    
-    setTimeout(() => {
-        const resetButton = document.getElementById("button-reset");
-    }, 2000);
-
-    localStorage.removeItem('quizProgress');
-}
 document.addEventListener('DOMContentLoaded', getQuestions);
-resultsNav.addEventListener("click", goResults)
-homeNav.addEventListener("click", goHome)    
-      
+resultsNav.addEventListener("click", goResults);
+homeNav.addEventListener("click", goHome);
