@@ -44,7 +44,8 @@ Are you ready to put your knowledge to the test? 💡
 Let's get started!
 
 ## Preview
-https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png
+<span>![</span><span>Aquí la descripción de la imagen por si no carga</span><span>]</span><span>(</span><span>[https://raw.githubusercontent.com/parzibyte/WaterPy/master/assets/ImagenV1.png](https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png)</span><span>)</span>
+
 
 
 <p align="center">
