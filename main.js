@@ -27,10 +27,14 @@ function getQuestions() {
         });
 }
 
-function goHome(){
+function goHome() {
     homeDiv.classList.remove("hide");
     resultsDiv.classList.add("hide");
+
+    questionCounter = 0;
+    renderQuestion();
 }
+
 
 function goResults(){
     homeDiv.classList.add("hide");

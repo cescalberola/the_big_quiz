@@ -1,16 +1,17 @@
 * {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     
 }
 .hide{
     display: none ;
 }
 
-#homeNav {
-    
-    text-align: left;
+#homeNav{
+    margin-top: 20px;
+    margin-right: 100px;
 }
+
 #resultsNav{
     text-align: right;
 }
