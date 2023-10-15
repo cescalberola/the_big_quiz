@@ -44,7 +44,7 @@ Are you ready to put your knowledge to the test? 💡
 Let's get started!
 
 ## Preview
-!(https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png))
+https://github.com/cescalberola/proyecto_quiz/blob/57f64ef63ee834d3c688520c3431e9363607d1a8/assets/preview%20quiz.png
 
 
 <p align="center">
