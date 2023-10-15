@@ -3,44 +3,43 @@
 ![GitHub stars](https://img.shields.io/github/stars/tu-usuario/tu-repositorio?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/tu-usuario/tu-repositorio?style=social)
 
-# El gran Quiz - Tu Cuestionario Interactivo 🚀
-¡Bienvenidos a El gran Quiz! 👋 
+The Big Quiz - Your Interactive Questionnaire 🚀
+Welcome to The Big Quiz! 👋
 
-¿Qué es El gran Quiz?
+What is The Big Quiz?
 
-El gran Quiz es un cuestionario en línea que te desafiará con 10 preguntas de todo tipo. 🤔 
+The Big Quiz is an online questionnaire that will challenge you with 10 questions of all kinds. 🤔
 
-¿Estás listo para poner a prueba tus conocimientos? 💡
+Are you ready to put your knowledge to the test? 💡
 
-Características Destacadas 🌟
+Highlighted Features 🌟
 
 <ol>
-  <li>10 preguntas emocionantes 🧠</li>
-  <li>4 opciones por pregunta, ¡elige sabiamente! 🤯</li>
-  <li>Interfaz intuitiva de una sola página 🌐</li>
-  <li>API de preguntas de OpenTDB para datos en tiempo real 🕒</li>
-  <li>Desarrollado sin librerías externas (excepto Bootstrap para estilos) 🎨</li>
-  <li>Integración de Local Storage y gráficos (¡sorpresas adicionales!) 📈</li>
+  <li>10 exciting questions 🧠</li>
+  <li>4 options per question, choose wisely! 🤯</li>
+  <li>Intuitive single-page interface 🌐</li>
+  <li>OpenTDB question API for real-time data 🕒</li>
+  <li>Developed without external libraries (except Bootstrap for styles) 🎨</li>
+  <li>Integration of Local Storage and graphics (additional surprises!) 📈</li>
 </ol>
-
-<h2>Objetivos Principales 🎯</h2>
+<h2>Main Objectives 🎯</h2>
 <ul>
-  <li>Repasa y profundiza en tus conocimientos 📚</li>
-  <li>Mejora tus habilidades en Git colaborando en el proyecto 🐙</li>
-  <li>Trabaja en equipo y practica la colaboración 💪</li>
+  <li>Review and deepen your knowledge 📚</li>
+  <li>Improve your Git skills by collaborating on the project 🐙</li>
+  <li>Work as a team and practice collaboration 💪</li>
 </ul>
-
-<h2>Requisitos Básicos 📋</h2>
+<h2>Basic Requirements 📋</h2>
 <ul>
-  <li>Dominio en manipulación dinámica del DOM 🏗️</li>
-  <li>Crea una SPA para preguntas 📄</li>
-  <li>Conocimientos de ES6 🚀</li>
-  <li>Utiliza asincronía con la API de preguntas de OpenTDB 🌐</li>
-  <li>Código limpio y buenas prácticas 🧹</li>
+  <li>Proficiency in dynamic DOM manipulation 🏗️</li>
+  <li>Create a Single Page Application for questions 📄</li>
+  <li>Knowledge of ES6 🚀</li>
+  <li>Use asynchrony with the OpenTDB question API 🌐</li>
+  <li>Clean code and good practices 🧹</li>
 </ul>
+Let's get started!
 
-
-¡Comencemos!
+Preview:
+<img src="/assets/preview quiz.png" width="150>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" width="30" alt="HTML">
