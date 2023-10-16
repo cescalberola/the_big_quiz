@@ -62,6 +62,16 @@ function goHome() {
     questionCounter = 0;
     getQuestions()
 }
+function goStart() {
+    homeDiv.classList.add("hide");
+    resultsDiv.classList.add("hide");
+    quizPage.classList.add("hide");
+    gifsDiv.innerHTML=""
+    questionCounter = 0;
+    getQuestions()
+    homeNav.classList.add("hide");
+    startBtn.classList.remove("hide")
+}
 
 function goResults() {
     homeDiv.classList.add("hide");
@@ -168,7 +178,7 @@ function showFinalMessage() {
         setTimeout(() => {
         goResults()
     }, 2000);
-    homeNav.addEventListener("click", goHome);
+    homeNav.addEventListener("click",);
 
 }
 
@@ -182,8 +192,8 @@ function shuffleArray(array) {
 }
 getQuestions();
 resultsNav.addEventListener("click", goResults);
-homeNav.addEventListener("click", goHome);
-startBtn.addEventListener("click",()=>{
+homeNav.addEventListener("click", goStart);
+startBtn.addEventListener("click",() => {
 startBtn.classList.add("hide")
     goHome()
 })
