@@ -4,7 +4,7 @@ const homeDiv = document.getElementById("home");
 const resultsDiv = document.getElementById("results");
 const gifsDiv = document.getElementById("gifsDiv")
 const quizPage = document.getElementById('quiz-page');
-
+const startBtn = document.getElementById("start-button")
 let questionCounter = 0;
 let questions = [];
 let resultMessage = null;
@@ -22,13 +22,13 @@ function printChart() {
   const data = {
     labels: labels,
     datasets: [{
-      label: 'Results',
-      backgroundColor: "rgba(255,99,132,0.2)",
+    label: 'Results',
+    backgroundColor: "rgba(255,99,132,0.2)",
     borderColor: "rgba(255,99,132,1)",
     borderWidth: 2,
     hoverBackgroundColor: "rgba(255,99,132,0.4)",
     hoverBorderColor: "rgba(255,99,132,1)",
-      data: [correctAnswersCount, 10-correctAnswersCount],
+    data: [correctAnswersCount, 10-correctAnswersCount],
     }]
   };
 
@@ -181,3 +181,7 @@ function shuffleArray(array) {
 getQuestions();
 resultsNav.addEventListener("click", goResults);
 homeNav.addEventListener("click", goHome);
+startBtn.addEventListener("click",()=>{
+    startBtn.classList.add("hide")
+    goHome()
+})
