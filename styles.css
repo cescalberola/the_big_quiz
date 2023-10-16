@@ -15,15 +15,6 @@ h1 {
     margin-top: 20px;
 }
 
-/* #homeNav{
-    margin-top: 20px;
-    margin-right: 380px;
-} */
-
-/* #resultsNav{
-    text-align: right;
-} */
-
 #homeNav, #resultsNav {
     border-radius: 10px;
 }

@@ -37,6 +37,7 @@ function printChart() {
     type: 'bar',
     data: data,
     options: {}
+
   };
 
 const myChart = new Chart('myChart', config);
@@ -68,7 +69,7 @@ function goResults() {
     quizPage.classList.add("hide")
     gifsDiv.innerHTML=""
     printChart()
-    
+    homeNav.classList.remove("hide");
 }
 
 function renderNextQuestion() {
@@ -183,6 +184,6 @@ getQuestions();
 resultsNav.addEventListener("click", goResults);
 homeNav.addEventListener("click", goHome);
 startBtn.addEventListener("click",()=>{
-    startBtn.classList.add("hide")
+startBtn.classList.add("hide")
     goHome()
 })
