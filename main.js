@@ -12,10 +12,10 @@ let resultMessage = null;
 let isRenderingNextQuestion = false;
 let correctAnswersCount = 0;
 
-const savedProgress = localStorage.getItem('quizProgress');
-if (savedProgress) {
-    questionCounter = parseInt(savedProgress, 10);
-}
+// const savedProgress = localStorage.getItem('quizProgress');
+// if (savedProgress) {
+//     questionCounter = parseInt(savedProgress, 10);
+// }
 
 function printChart() {
     const labels = ['Correctas', 'Incorrectas'];
@@ -41,20 +41,6 @@ function printChart() {
   };
 
 const myChart = new Chart('myChart', config);
-
-let username = prompt("Enter your username:");
-    if (username !== null) {  // Check if the user clicked Cancel
-        saveUsernameAndScore(username);
-    }
-}
-
-function saveUsernameAndScore(username) {
-    // Save the username and score in localStorage
-    const userScore = {
-        username: username,
-        score: correctAnswersCount
-    };
-    localStorage.setItem('userScore', JSON.stringify(userScore));
 
 }
 function getQuestions() {
@@ -83,19 +69,42 @@ function goStart() {
     quizPage.classList.add("hide");
     homeNav.classList.add("hide");
     startBtn.classList.remove("hide");
-    gifsDiv.innerHTML=""
+    gifsDiv.innerHTML = "";
     questionCounter = 0;
-    getQuestions()
+    correctAnswersCount = 0; // Resetea el contador de respuestas correctas
+    getQuestions();
 }
+
 
 function goResults() {
     homeDiv.classList.add("hide");
     resultsDiv.classList.remove("hide");
-    quizPage.classList.add("hide")
-    gifsDiv.innerHTML=""
-    printChart()
+    quizPage.classList.add("hide");
+    gifsDiv.innerHTML = "";
+
+    printChart(); // Ejecuta printChart() de inmediato
+
+    setTimeout(() => {
+        let username = prompt("Enter your username:");
+        if (username !== null) {
+            const userScore = {
+                username: username,
+                score: correctAnswersCount
+            };
+            saveUsernameAndScore(userScore); // Llama a la función con el objeto userScore
+        }
+    }, 2000); // Establece un temporizador de 3 segundos antes de mostrar el prompt
+
     homeNav.classList.remove("hide");
 }
+
+function saveUsernameAndScore(userScore) {
+    let userScores = JSON.parse(localStorage.getItem('userScores')) || [];
+    userScores.push(userScore);
+    localStorage.setItem('userScores', JSON.stringify(userScores));
+}
+
+
 
 function renderNextQuestion() {
     if (isRenderingNextQuestion) {
@@ -148,7 +157,6 @@ function renderQuestion() {
         } else {
         showFinalMessage();
 
-        localStorage.removeItem('quizProgress');
     }
 }
 
@@ -188,8 +196,6 @@ function showFinalMessage() {
     } else {
         gifsDiv.innerHTML = '<h3>¡What a pity, we will have to study more!!</h3><img src="/assets/triste-tristeza.gif">';
     }
-
-    localStorage.removeItem('quizProgress');
         setTimeout(() => {
         goResults()
     }, 2000);
