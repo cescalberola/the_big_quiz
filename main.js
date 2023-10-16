@@ -15,8 +15,27 @@ const savedProgress = localStorage.getItem('quizProgress');
 if (savedProgress) {
     questionCounter = parseInt(savedProgress, 10);
 }
+function printChart() {
+    const labels = ['Correctas', 'Incorrectas'];
 
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Mi primera gráfica',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [correctAnswersCount, 10-correctAnswersCount],
+    }]
+  };
 
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {}
+  };
+
+const myChart = new Chart('myChart', config);
+}
 function getQuestions() {
     axios.get('https://opentdb.com/api.php?amount=10&type=multiple')
         .then(res => {
@@ -41,6 +60,10 @@ function goHome() {
 function goResults() {
     homeDiv.classList.add("hide");
     resultsDiv.classList.remove("hide");
+    quizPage.classList.add("hide")
+    gifsDiv.innerHTML=""
+    printChart()
+    
 }
 
 function renderNextQuestion() {
@@ -136,7 +159,9 @@ function showFinalMessage() {
     }
 
     localStorage.removeItem('quizProgress');
-
+setTimeout(() => {
+    goResults()
+}, 3000);
     homeNav.addEventListener("click", goHome);
 
 }
@@ -149,6 +174,6 @@ function shuffleArray(array) {
     }
     return shuffled;
 }
-getQuestions()
+getQuestions();
 resultsNav.addEventListener("click", goResults);
 homeNav.addEventListener("click", goHome);
