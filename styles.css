@@ -40,6 +40,12 @@ h1 {
     justify-content: center;
 }
 
+canvas {
+    margin-left: 300px;
+    margin-right: 300px;
+
+  }
+
 .red {
     background-color: red;
     border-radius: 10px;

@@ -15,15 +15,19 @@ const savedProgress = localStorage.getItem('quizProgress');
 if (savedProgress) {
     questionCounter = parseInt(savedProgress, 10);
 }
+
 function printChart() {
     const labels = ['Correctas', 'Incorrectas'];
 
   const data = {
     labels: labels,
     datasets: [{
-      label: 'Mi primera gráfica',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
+      label: 'Results',
+      backgroundColor: "rgba(255,99,132,0.2)",
+    borderColor: "rgba(255,99,132,1)",
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+    hoverBorderColor: "rgba(255,99,132,1)",
       data: [correctAnswersCount, 10-correctAnswersCount],
     }]
   };
@@ -159,9 +163,9 @@ function showFinalMessage() {
     }
 
     localStorage.removeItem('quizProgress');
-setTimeout(() => {
-    goResults()
-}, 3000);
+        setTimeout(() => {
+        goResults()
+    }, 2000);
     homeNav.addEventListener("click", goHome);
 
 }
