@@ -5,6 +5,7 @@ const resultsDiv = document.getElementById("results");
 const gifsDiv = document.getElementById("gifsDiv")
 const quizPage = document.getElementById('quiz-page');
 const startBtn = document.getElementById("start-button")
+
 let questionCounter = 0;
 let questions = [];
 let resultMessage = null;
