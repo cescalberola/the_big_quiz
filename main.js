@@ -41,6 +41,21 @@ function printChart() {
   };
 
 const myChart = new Chart('myChart', config);
+
+let username = prompt("Enter your username:");
+    if (username !== null) {  // Check if the user clicked Cancel
+        saveUsernameAndScore(username);
+    }
+}
+
+function saveUsernameAndScore(username) {
+    // Save the username and score in localStorage
+    const userScore = {
+        username: username,
+        score: correctAnswersCount
+    };
+    localStorage.setItem('userScore', JSON.stringify(userScore));
+
 }
 function getQuestions() {
     axios.get('https://opentdb.com/api.php?amount=10&type=multiple')
@@ -66,11 +81,11 @@ function goStart() {
     homeDiv.classList.add("hide");
     resultsDiv.classList.add("hide");
     quizPage.classList.add("hide");
+    homeNav.classList.add("hide");
+    startBtn.classList.remove("hide");
     gifsDiv.innerHTML=""
     questionCounter = 0;
     getQuestions()
-    homeNav.classList.add("hide");
-    startBtn.classList.remove("hide")
 }
 
 function goResults() {
@@ -178,7 +193,7 @@ function showFinalMessage() {
         setTimeout(() => {
         goResults()
     }, 2000);
-    homeNav.addEventListener("click",);
+
 
 }
 
