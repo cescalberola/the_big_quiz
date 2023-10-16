@@ -56,7 +56,7 @@ function getQuestions() {
 function goHome() {
     homeDiv.classList.remove("hide");
     resultsDiv.classList.add("hide");
-    quizPage.classList.remove("hide")
+    quizPage.classList.remove("hide");
     gifsDiv.innerHTML=""
     questionCounter = 0;
     getQuestions()

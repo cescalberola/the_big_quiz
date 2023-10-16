@@ -11,14 +11,18 @@ h1 {
     display: none ;
 }
 
-#homeNav{
+#homeNav {
     margin-top: 20px;
-    margin-right: 380px;
 }
 
-#resultsNav{
+/* #homeNav{
+    margin-top: 20px;
+    margin-right: 380px;
+} */
+
+/* #resultsNav{
     text-align: right;
-}
+} */
 
 #homeNav, #resultsNav {
     border-radius: 10px;
