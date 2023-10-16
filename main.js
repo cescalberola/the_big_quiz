@@ -2,6 +2,8 @@ const homeNav = document.getElementById("homeNav");
 const resultsNav = document.getElementById("resultsNav");
 const homeDiv = document.getElementById("home");
 const resultsDiv = document.getElementById("results");
+const gifsDiv = document.getElementById("gifsDiv")
+const quizPage = document.getElementById('quiz-page');
 
 let questionCounter = 0;
 let questions = [];
@@ -30,9 +32,10 @@ function getQuestions() {
 function goHome() {
     homeDiv.classList.remove("hide");
     resultsDiv.classList.add("hide");
+    quizPage.classList.remove("hide")
 
     questionCounter = 0;
-    renderQuestion();
+    getQuestions()
 }
 
 function goResults() {
@@ -110,7 +113,6 @@ function checkAnswer(selectedAnswer, correctAnswer) {
         resultMessage.style.color = 'red';
     }
 
-    const quizPage = document.getElementById('quiz-page');
 
     quizPage.appendChild(resultMessage);
 
@@ -126,11 +128,11 @@ function checkAnswer(selectedAnswer, correctAnswer) {
 
 
 function showFinalMessage() {
-    const quizPage = document.getElementById('quiz-page');
+    quizPage.classList.add("hide")
     if (correctAnswersCount >= 5) {
-        quizPage.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3><img src="/assets/funny-celebrate-12.gif">';
+        gifsDiv.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3><img src="/assets/funny-celebrate-12.gif">';
     } else {
-        quizPage.innerHTML = '<h3>¡What a pity, we will have to study more!!</h3><img src="/assets/triste-tristeza.gif">';
+        gifsDiv.innerHTML = '<h3>¡What a pity, we will have to study more!!</h3><img src="/assets/triste-tristeza.gif">';
     }
 
     localStorage.removeItem('quizProgress');
@@ -147,7 +149,6 @@ function shuffleArray(array) {
     }
     return shuffled;
 }
-
-document.addEventListener('DOMContentLoaded', getQuestions);
+getQuestions()
 resultsNav.addEventListener("click", goResults);
 homeNav.addEventListener("click", goHome);
