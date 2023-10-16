@@ -15,7 +15,7 @@ h1 {
     margin-top: 20px;
 }
 
-#homeNav, #resultsNav {
+#homeNav, #rating-button, #resultsNav {
     border-radius: 10px;
 }
 

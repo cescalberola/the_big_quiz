@@ -12,11 +12,6 @@ let resultMessage = null;
 let isRenderingNextQuestion = false;
 let correctAnswersCount = 0;
 
-// const savedProgress = localStorage.getItem('quizProgress');
-// if (savedProgress) {
-//     questionCounter = parseInt(savedProgress, 10);
-// }
-
 function printChart() {
     const labels = ['Correctas', 'Incorrectas'];
 
@@ -63,6 +58,7 @@ function goHome() {
     questionCounter = 0;
     getQuestions()
 }
+
 function goStart() {
     homeDiv.classList.add("hide");
     resultsDiv.classList.add("hide");
@@ -71,10 +67,10 @@ function goStart() {
     startBtn.classList.remove("hide");
     gifsDiv.innerHTML = "";
     questionCounter = 0;
-    correctAnswersCount = 0; // Resetea el contador de respuestas correctas
+    correctAnswersCount = 0;
+    questions = [];
     getQuestions();
 }
-
 
 function goResults() {
     homeDiv.classList.add("hide");
@@ -82,7 +78,7 @@ function goResults() {
     quizPage.classList.add("hide");
     gifsDiv.innerHTML = "";
 
-    printChart(); // Ejecuta printChart() de inmediato
+    printChart();
 
     setTimeout(() => {
         let username = prompt("Enter your username:");
@@ -91,9 +87,9 @@ function goResults() {
                 username: username,
                 score: correctAnswersCount
             };
-            saveUsernameAndScore(userScore); // Llama a la función con el objeto userScore
+            saveUsernameAndScore(userScore);
         }
-    }, 2000); // Establece un temporizador de 3 segundos antes de mostrar el prompt
+    }, 1500);
 
     homeNav.classList.remove("hide");
 }
@@ -102,6 +98,38 @@ function saveUsernameAndScore(userScore) {
     let userScores = JSON.parse(localStorage.getItem('userScores')) || [];
     userScores.push(userScore);
     localStorage.setItem('userScores', JSON.stringify(userScores));
+}
+
+const ratingButton = document.getElementById("rating-button");
+ratingButton.addEventListener("click", showRating);
+
+function showRating() {
+
+    const userScores = JSON.parse(localStorage.getItem('userScores')) || [];
+
+    userScores.sort((a, b) => b.score - a.score);
+
+    const ratingList = document.createElement('ul');
+    
+    for (let i = 0; i < userScores.length; i++) {
+        const userScore = userScores[i];
+        const listItem = document.createElement('li');
+
+        let medal = "";
+        if (i === 0) {
+            medal = "🥇";
+        } else if (i === 1) {
+            medal = "🥈";
+        } else if (i === 2) {
+            medal = "🥉";
+        }
+
+        listItem.textContent = `${medal} ${userScore.username}: ${userScore.score}`;
+        ratingList.appendChild(listItem);
+    }
+
+    gifsDiv.innerHTML = "";
+    gifsDiv.appendChild(ratingList);
 }
 
 
