@@ -65,6 +65,7 @@ function goStart() {
     quizPage.classList.add("hide");
     homeNav.classList.add("hide");
     startBtn.classList.remove("hide");
+    ratingButton.classList.add("hide")
     gifsDiv.innerHTML = "";
     questionCounter = 0;
     correctAnswersCount = 0;
@@ -76,6 +77,8 @@ function goResults() {
     homeDiv.classList.add("hide");
     resultsDiv.classList.remove("hide");
     quizPage.classList.add("hide");
+    ratingButton.classList.remove("hide")
+
     gifsDiv.innerHTML = "";
 
     printChart();
@@ -111,9 +114,11 @@ function showRating() {
 
     const ratingList = document.createElement('ul');
     
-    for (let i = 0; i < userScores.length; i++) {
-        const userScore = userScores[i];
-        const listItem = document.createElement('li');
+    const top10Scores = userScores.slice(0, 10);
+
+    for (let i = 0; i < top10Scores.length; i++) {
+      const userScore = top10Scores[i];
+      const listItem = document.createElement('li');
 
         let medal = "";
         if (i === 0) {
@@ -131,8 +136,6 @@ function showRating() {
     gifsDiv.innerHTML = "";
     gifsDiv.appendChild(ratingList);
 }
-
-
 
 function renderNextQuestion() {
     if (isRenderingNextQuestion) {
