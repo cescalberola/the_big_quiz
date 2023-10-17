@@ -17,6 +17,8 @@ h1 {
 
 #homeNav, #rating-button, #resultsNav {
     border-radius: 10px;
+    /* margin-top: 300px; */
+
 }
 
 #idstart-button {
@@ -49,11 +51,6 @@ ul, ol {
     justify-content: center;
 }
 
-canvas {
-    margin-left: 300px;
-    margin-right: 300px;
-
-  }
 
 .red {
     background-color: red;
@@ -75,35 +72,5 @@ canvas {
     border-radius: 10px;
 }
 
-@media (max-width: 600px) {
 
-    .button-row {
-        display: block;
-    }
 
-    .button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-@media (max-width: 600px) {
-
-    .button-row {
-        display: block;
-    }
-
-    .button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    
-    .nav {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    #homeNav, #resultsNav {
-        display: block;
-        margin: 10px auto;
-    }
-}

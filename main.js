@@ -6,6 +6,7 @@ const gifsDiv = document.getElementById("gifsDiv")
 const quizPage = document.getElementById('quiz-page');
 const startBtn = document.getElementById("start-button")
 
+
 let questionCounter = 0;
 let questions = [];
 let resultMessage = null;
@@ -15,28 +16,25 @@ let myChart;
 
 function printChart() {
    
- 
     const labels = ['Correctas', 'Incorrectas'];
 
-  const data = {
-    labels: labels,
-    datasets: [{
-    label: 'Results',
-    backgroundColor: "rgba(255,99,132,0.2)",
-    borderColor: "rgba(255,99,132,1)",
-    borderWidth: 2,
-    hoverBackgroundColor: "rgba(255,99,132,0.4)",
-    hoverBorderColor: "rgba(255,99,132,1)",
-    data: [correctAnswersCount, 10-correctAnswersCount],
-    }]
+    const data = {
+        labels: labels,
+        datasets: [{
+        label: 'Results',
+        backgroundColor: "rgba(255,99,132,0.2)",
+        borderColor: "rgba(255,99,132,1)",
+        borderWidth: 2,
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        data: [correctAnswersCount, 10-correctAnswersCount],
+        }]
   };
   const config = {
     type: 'bar',
     data: data,
     options: {}
   };
-
-    
 
 myChart = new Chart('myChart', config);
 }
@@ -101,6 +99,7 @@ function goResults() {
     homeNav.classList.remove("hide");
 }
 
+
 function saveUsernameAndScore(userScore) {
     let userScores = JSON.parse(localStorage.getItem('userScores')) || [];
     userScores.push(userScore);
@@ -112,13 +111,22 @@ ratingButton.addEventListener("click", showRating);
 
 function showRating() {
 
+    homeDiv.classList.add("hide");
+    resultsDiv.classList.add("hide");
+    quizPage.classList.add("hide");
+    homeNav.classList.remove("hide");
+    startBtn.classList.add("hide");
+    ratingButton.classList.remove("hide")
+    
+    gifsDiv.innerHTML = "";
+
     const userScores = JSON.parse(localStorage.getItem('userScores')) || [];
 
     userScores.sort((a, b) => b.score - a.score);
 
     const ratingList = document.createElement('ul');
     
-    const top10Scores = userScores.slice(0, 10);
+    const top10Scores = userScores.slice(0, 5);
 
     for (let i = 0; i < top10Scores.length; i++) {
       const userScore = top10Scores[i];
@@ -235,7 +243,6 @@ function showFinalMessage() {
         goResults()
     }, 2000);
 
-
 }
 
 function shuffleArray(array) {
@@ -247,7 +254,7 @@ function shuffleArray(array) {
     return shuffled;
 }
 getQuestions();
-resultsNav.addEventListener("click", goResults);
+// resultsNav.addEventListener("click", goResults);
 homeNav.addEventListener("click", goStart);
 startBtn.addEventListener("click",() => {
 startBtn.classList.add("hide")
