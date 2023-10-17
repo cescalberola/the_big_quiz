@@ -15,9 +15,10 @@ h1 {
     margin-top: 20px;
 }
 
-#homeNav, #rating-button, #resultsNav {
+#homeNav, #rating-button{
     border-radius: 10px;
-    /* margin-top: 300px; */
+    margin-bottom: 30px;
+
 
 }
 
@@ -71,6 +72,4 @@ ul, ol {
     background-color: yellow;
     border-radius: 10px;
 }
-
-
 
