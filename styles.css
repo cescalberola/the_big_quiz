@@ -1,9 +1,10 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-    background-color: rgb(255, 255, 255);
+    background-color: #eeeee2;
     text-align: center;
-    font-size: 23px;
+    font-size: 18px;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -64,27 +65,27 @@ ul, ol {
 
 
 .red {
-    background-color: rgb(203, 55, 55);
+    background-color: #E06D61;
     border-radius: 10px;
 }
 
 .blue {
-    background-color: rgb(69, 69, 189);
+    background-color: #367BA5;
     border-radius: 10px;
 }
 
 .green {
-    background-color: rgb(70, 144, 70);
+    background-color: #598876;
     border-radius: 10px;
 }
 
 .yellow {
-    background-color: rgb(216, 216, 53);
+    background-color: #E5CF93;
     border-radius: 10px;
 }
 
 .purple {
-    background-color: purple;
+    background-color: #4C5072;
     border-radius: 10px;
     color: white;
 }

@@ -211,11 +211,11 @@ function checkAnswer(selectedAnswer, correctAnswer) {
     resultMessage = document.createElement('p');
     if (selectedAnswer === correctAnswer) {
         resultMessage.textContent = "Congratulations! The answer is correct.";
-        resultMessage.style.color = "rgb(70, 144, 70)";
+        resultMessage.style.color = "#598876";
         correctAnswersCount++;
     } else {
         resultMessage.textContent = "I'm sorry, incorrect answer.";
-        resultMessage.style.color = "rgb(203, 55, 55)";
+        resultMessage.style.color = "#E06D61";
     }
 
 
@@ -235,9 +235,9 @@ function checkAnswer(selectedAnswer, correctAnswer) {
 function showFinalMessage() {
     quizPage.classList.add("hide")
     if (correctAnswersCount >= 5) {
-        gifsDiv.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3><img src="/assets/funny-celebrate-12.gif">';
+        gifsDiv.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3><img src="/assets/confetti.gif">';
     } else {
-        gifsDiv.innerHTML = '<h3>¡What a pity, we will have to study more!!</h3><img src="/assets/triste-tristeza.gif">';
+        gifsDiv.innerHTML = '<h3>¡What a pity, we will have to study more!!</h3><img src="/assets/anime-study.gif">';
     }
         setTimeout(() => {
         goResults()
