@@ -1,4 +1,5 @@
 * {
+    background-color: rgb(255, 255, 255);
     text-align: center;
     font-size: 23px;
 }
@@ -18,7 +19,6 @@ h1 {
 #homeNav, #rating-button{
     border-radius: 10px;
     margin-bottom: 30px;
-
 
 }
 
@@ -54,22 +54,27 @@ ul, ol {
 
 
 .red {
-    background-color: red;
+    background-color: rgb(203, 55, 55);
     border-radius: 10px;
 }
 
 .blue {
-    background-color: blue;
+    background-color: rgb(69, 69, 189);
     border-radius: 10px;
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(70, 144, 70);
     border-radius: 10px;
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: rgb(216, 216, 53);
     border-radius: 10px;
 }
 
+.purple {
+    background-color: purple;
+    border-radius: 10px;
+    color: white;
+}

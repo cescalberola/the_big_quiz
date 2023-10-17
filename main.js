@@ -211,11 +211,11 @@ function checkAnswer(selectedAnswer, correctAnswer) {
     resultMessage = document.createElement('p');
     if (selectedAnswer === correctAnswer) {
         resultMessage.textContent = "Congratulations! The answer is correct.";
-        resultMessage.style.color = 'green';
+        resultMessage.style.color = "rgb(70, 144, 70)";
         correctAnswersCount++;
     } else {
         resultMessage.textContent = "I'm sorry, incorrect answer.";
-        resultMessage.style.color = 'red';
+        resultMessage.style.color = "rgb(203, 55, 55)";
     }
 
 
