@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     background-color: rgb(255, 255, 255);
     text-align: center;
     font-size: 23px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.logo{
+    margin-top: 20px;
+    width: 400px;
 }
 
 h1 {
