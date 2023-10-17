@@ -228,9 +228,9 @@ function checkAnswer(selectedAnswer, correctAnswer) {
 function showFinalMessage() {
     quizPage.classList.add("hide")
     if (correctAnswersCount >= 5) {
-        gifsDiv.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3><img src="/assets/confetti.gif">';
+        gifsDiv.innerHTML = '<h3>¡Congratulations, you have completed The Big Quiz!!</h3><img src="/assets/cerebro_ok.png">';
     } else {
-        gifsDiv.innerHTML = '<h3>¡What a pity, we will have to study more!!</h3><img src="/assets/anime-study.gif">';
+        gifsDiv.innerHTML = '<h3>¡Your brain is messed up but you can play again!!</h3><img src="/assets/cerebro_nok.png">';
     }
         setTimeout(() => {
         goResults()
