@@ -11,8 +11,11 @@ let questions = [];
 let resultMessage = null;
 let isRenderingNextQuestion = false;
 let correctAnswersCount = 0;
+let myChart;
 
 function printChart() {
+   
+ 
     const labels = ['Correctas', 'Incorrectas'];
 
   const data = {
@@ -27,17 +30,17 @@ function printChart() {
     data: [correctAnswersCount, 10-correctAnswersCount],
     }]
   };
-
   const config = {
     type: 'bar',
     data: data,
     options: {}
-
   };
 
-const myChart = new Chart('myChart', config);
+    
 
+myChart = new Chart('myChart', config);
 }
+
 function getQuestions() {
     axios.get('https://opentdb.com/api.php?amount=10&type=multiple')
         .then(res => {
@@ -70,6 +73,7 @@ function goStart() {
     questionCounter = 0;
     correctAnswersCount = 0;
     questions = [];
+    myChart.destroy()
     getQuestions();
 }
 
