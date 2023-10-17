@@ -125,23 +125,16 @@ function showRating() {
     userScores.sort((a, b) => b.score - a.score);
 
     const ratingList = document.createElement('ul');
-    
+    ratingList.classList.add("rating-list"); // Agregar una clase para el estilo
+
     const top10Scores = userScores.slice(0, 5);
 
     for (let i = 0; i < top10Scores.length; i++) {
-      const userScore = top10Scores[i];
-      const listItem = document.createElement('li');
+        const userScore = top10Scores[i];
+        const listItem = document.createElement('li');
+        listItem.classList.add("rating-item"); // Agregar una clase para el estilo
 
-        let medal = "";
-        if (i === 0) {
-            medal = "🥇";
-        } else if (i === 1) {
-            medal = "🥈";
-        } else if (i === 2) {
-            medal = "🥉";
-        }
-
-        listItem.textContent = `${medal} ${userScore.username}: ${userScore.score}`;
+        listItem.textContent = `${userScore.username}: ${userScore.score}`;
         ratingList.appendChild(listItem);
     }
 

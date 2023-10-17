@@ -8,8 +8,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-
-
 .logo{
     margin-top: 20px;
     width: 400px;
@@ -88,4 +86,36 @@ ul, ol {
     background-color: #4C5072;
     border-radius: 10px;
     color: white;
+}
+
+.rating-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rating-item {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    margin: 5px;
+    margin-left: 400px;
+    margin-right: 400px;
+    background-color: #fff; /* Color de fondo para cada elemento */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.rating-item:first-child {
+    background-color: #D4AF37;
+    color: #000000;
+}
+
+.rating-item:nth-child(2) {
+    background-color: #a3a2a0;
+    color: #000000;
+}
+
+.rating-item:nth-child(3) {
+    background-color: #cd7f32;
+    color: #000000;
 }
