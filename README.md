@@ -46,7 +46,7 @@ Let's get started!
 ## Preview
 
 <p align="left">
-   <img src="/assets/captura quiz.png">
+   <img src="/assets/gif_readme.gif">
    </p>
 
 <p align="center">
