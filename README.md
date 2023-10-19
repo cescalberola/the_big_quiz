@@ -1,8 +1,3 @@
-![GitHub repo size](https://img.shields.io/github/repo-size/your-username/your-repository)
-![GitHub contributors](https://img.shields.io/github/contributors/your-username/your-repository)
-![GitHub stars](https://img.shields.io/github/stars/your-username/your-repository?style=social)
-![GitHub forks](https://img.shields.io/github/forks/your-username/your-repository?style=social)
-
 # The Big Quiz - Your Interactive Questionnaire 🚀
 Welcome to The Big Quiz! 👋
 
