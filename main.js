@@ -15,29 +15,37 @@ let correctAnswersCount = 0;
 let myChart;
 
 function printChart() {
-   
+
     const labels = ['Correctas', 'Incorrectas'];
 
     const data = {
-        labels: labels,
-        datasets: [{
-        label: 'Results',
-        backgroundColor: "rgba(255,99,132,0.2)",
-        borderColor: "rgba(255,99,132,1)",
-        borderWidth: 2,
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
-        data: [correctAnswersCount, 10-correctAnswersCount],
+        labels,
+        datasets: [{label: 'Correctas',
+        backgroundColor: ["#598876","#E06D61"],
+        borderColor: ["#8EB5A6","#F0B8B1"],
+        borderWidth: 1,
+        hoverBackgroundColor: ["#8EB5A6"],
+        hoverBorderColor: ["#8EB5A6"],
+        data: [correctAnswersCount, 10 - correctAnswersCount],
+        }, {
+            label: 'Incorrectas',
+            backgroundColor: "#E06D61",
+            borderColor: "#F0B8B1",
+            borderWidth: 1,
+            hoverBackgroundColor: "#F0B8B1",
+            hoverBorderColor: "#F0B8B1",
         }]
-  };
+    };
+
     const config = {
         type: 'bar',
         data: data,
         options: {}
-  };
+    };
 
-    myChart = new Chart('myChart', config);
+    const myChart = new Chart('myChart', config);
 }
+
 
 function getQuestions() {
     axios.get('https://opentdb.com/api.php?amount=10&type=multiple')
@@ -94,7 +102,7 @@ function goResults() {
             };
             saveUsernameAndScore(userScore);
         }
-    }, 1500);
+    }, 1200);
 
     homeNav.classList.remove("hide");
 }
