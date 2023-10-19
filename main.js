@@ -45,7 +45,7 @@ function printChart() {
         data: data,
         options: {}
     };
-    const myChart = new Chart(document.getElementById('myChart'), config);
+    myChart = new Chart('myChart', config);
 }
 
 function getQuestions() {
@@ -80,7 +80,7 @@ function goStart() {
     questionCounter = 0;
     correctAnswersCount = 0;
     questions = [];
-    myChart.destroy()
+    myChart.destroy();
     getQuestions();
 }
 
@@ -88,7 +88,7 @@ function goResults() {
     homeDiv.classList.add("hide");
     resultsDiv.classList.remove("hide");
     quizPage.classList.add("hide");
-    ratingButton.classList.remove("hide")
+    ratingButton.classList.remove("hide");
 
     gifsDiv.innerHTML = "";
 
