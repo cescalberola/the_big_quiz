@@ -30,13 +30,13 @@ function printChart() {
         data: [correctAnswersCount, 10-correctAnswersCount],
         }]
   };
-  const config = {
-    type: 'bar',
-    data: data,
-    options: {}
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {}
   };
 
-myChart = new Chart('myChart', config);
+    myChart = new Chart('myChart', config);
 }
 
 function getQuestions() {
