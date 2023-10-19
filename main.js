@@ -15,37 +15,38 @@ let correctAnswersCount = 0;
 let myChart;
 
 function printChart() {
-
-    const labels = ['Correctas', 'Incorrectas'];
+    const labels = ['Results'];
 
     const data = {
-        labels,
-        datasets: [{label: 'Correctas',
-        backgroundColor: ["#598876","#E06D61"],
-        borderColor: ["#8EB5A6","#F0B8B1"],
-        borderWidth: 1,
-        hoverBackgroundColor: ["#8EB5A6"],
-        hoverBorderColor: ["#8EB5A6"],
-        data: [correctAnswersCount, 10 - correctAnswersCount],
-        }, {
-            label: 'Incorrectas',
-            backgroundColor: "#E06D61",
-            borderColor: "#F0B8B1",
-            borderWidth: 1,
-            hoverBackgroundColor: "#F0B8B1",
-            hoverBorderColor: "#F0B8B1",
-        }]
+        labels: labels,
+        datasets: [
+            {
+                label: 'Correct',
+                backgroundColor: "#598876",
+                borderColor: "#8EB5A6",
+                borderWidth: 2,
+                hoverBackgroundColor: "#8EB5A6",
+                hoverBorderColor: "#8EB5A6",
+                data: [correctAnswersCount]
+            },
+            {
+                label: 'Incorrect',
+                backgroundColor: "#E06D61",
+                borderColor: "#F0B8B1",
+                borderWidth: 2,
+                hoverBackgroundColor: "#F0B8B1",
+                hoverBorderColor: "#F0B8B1",
+                data: [10 - correctAnswersCount]
+            }
+        ]
     };
-
     const config = {
         type: 'bar',
         data: data,
         options: {}
     };
-
-    const myChart = new Chart('myChart', config);
+    const myChart = new Chart(document.getElementById('myChart'), config);
 }
-
 
 function getQuestions() {
     axios.get('https://opentdb.com/api.php?amount=10&type=multiple')
