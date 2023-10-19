@@ -125,14 +125,14 @@ function showRating() {
     userScores.sort((a, b) => b.score - a.score);
 
     const ratingList = document.createElement('ul');
-    ratingList.classList.add("rating-list"); // Agregar una clase para el estilo
+    ratingList.classList.add("rating-list");
 
     const top10Scores = userScores.slice(0, 5);
 
     for (let i = 0; i < top10Scores.length; i++) {
         const userScore = top10Scores[i];
         const listItem = document.createElement('li');
-        listItem.classList.add("rating-item"); // Agregar una clase para el estilo
+        listItem.classList.add("rating-item");
 
         listItem.textContent = `${userScore.username}: ${userScore.score}`;
         ratingList.appendChild(listItem);
@@ -247,7 +247,6 @@ function shuffleArray(array) {
     return shuffled;
 }
 getQuestions();
-// resultsNav.addEventListener("click", goResults);
 homeNav.addEventListener("click", goStart);
 startBtn.addEventListener("click",() => {
 startBtn.classList.add("hide")
